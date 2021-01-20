@@ -1,0 +1,42 @@
+#include<iostream>
+using namespace std;
+
+
+void findMax(long x1, long x2,long x3, long x4)
+{
+	
+	long arr[] = { x1,x2,x3,x4 };
+	char name[] = {'1','2', '3','4' };
+	
+	for (int i = 3; i >= 0; i--) {
+		for (int j = 0; j < i; j++) {
+			bool flag = false;
+			if (arr[j] > arr[j + 1]) {
+				long temp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = temp;
+				flag = true;
+			}
+			
+			if (flag) {
+				char temp2 = name[j];
+				name[j] = name[j + 1];
+				name[j + 1] = temp2;
+			}
+		}
+	}
+	
+	for (int k = 0; k < 4; k++){
+	
+		cout << name[k] << endl;
+	}
+	
+
+}
+
+int main() {
+
+	findMax(560,462,9,781);
+
+	return 0;
+}
